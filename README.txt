@@ -39,6 +39,7 @@ Answer: 693942
 Approach:
 Read file
 Read each line
+linear iteration
 Extract inside the insides of parenthesis from left to right in findSum() and send to mathString()
 Find addition sum in mathString()
     do additions
@@ -52,3 +53,7 @@ add result sum back into list
 next parenthesis
 return line sum to main()
 Add line sum to product
+
+Technical use:
+Java
+data types: long, ArrayList
