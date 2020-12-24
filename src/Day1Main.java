@@ -15,13 +15,32 @@ public class Day1Main
 
         //add each line to lines
         String line;
-        ArrayList<String> nums = new ArrayList<String>();
+        ArrayList<Integer> nums = new ArrayList<Integer>();
         while ((line = br.readLine()) != null)
         {
-            nums.add(line);
+            nums.add(Integer.parseInt(line));
         }
 
         //amount of lines
         int numLines = nums.size();
+
+        for(int index1 = 0; index1 < (numLines - 2); index1++)
+        {
+            for(int index2 = (index1 + 1); index2 < (numLines - 1); index2++)
+            {
+                for(int index3 = (index2 +1); index3 < numLines; index3++)
+                {
+                    int result = nums.get(index1) + nums.get(index2) + nums.get(index3);
+                    if(result == 2020)
+                    {
+                        System.out.println(nums.get(index1) * nums.get(index2) * nums.get(index3));
+                        break;
+                    }
+                }
+
+            }
+        }
+
+        //System.out.println(nums);
     }
 }

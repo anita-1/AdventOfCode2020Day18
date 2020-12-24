@@ -1,5 +1,38 @@
-File: Day18MathMain
+Project: Advent of Code 2020
 Author: Anita Luo
+
+* * *
+File: Day1Main.java
+Date: 12/24/2020
+
+Description:
+find elements to sum to something, multiply those elements together to get result
+
+Assumptions:
+each input line is an integer
+
+Technical use:
+ArrayLists, Integers
+
+Approach:
+nested for loops
+element + all elements after
+compare
+print result
+
+Example Input:
+1721
+979
+366
+299
+675
+1456
+
+Example Output:
+241861950
+
+* * *
+File: Day18MathMain.java
 Date: 12/23/2020
 
 Description:
@@ -8,6 +41,29 @@ Left to right, parenthesis, addition, then multiplication
 
 Assumptions:
 Each line consists of integers, *, (, )
+
+Technical use:
+Java
+data types: long, ArrayList
+
+Approach:
+Read file
+Read each line
+linear iteration
+Extract inside the insides of parenthesis from left to right in findSum() and send to mathString()
+Find addition sum in mathString()
+    do additions
+        remove the used elements
+        add the result back into list
+    if there are other elements after the additions, send to mulString() otherwise send result back to findSum()
+Find product result in mulString()
+    send result back to mathString()
+remove used elements
+add result sum back into list
+next parenthesis
+return line sum to main()
+Add line sum to product
+
 
 Example Input:
 1 + (2 * 3) + (4 * (5 + 6))
@@ -35,25 +91,3 @@ result: 23340
 totalsum5: 693942
 
 Answer: 693942
-
-Approach:
-Read file
-Read each line
-linear iteration
-Extract inside the insides of parenthesis from left to right in findSum() and send to mathString()
-Find addition sum in mathString()
-    do additions
-        remove the used elements
-        add the result back into list
-    if there are other elements after the additions, send to mulString() otherwise send result back to findSum()
-Find product result in mulString()
-    send result back to mathString()
-remove used elements
-add result sum back into list
-next parenthesis
-return line sum to main()
-Add line sum to product
-
-Technical use:
-Java
-data types: long, ArrayList
