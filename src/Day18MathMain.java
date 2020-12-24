@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+
 public class Day18MathMain
 {
     public static void main(String[] args) throws Exception
