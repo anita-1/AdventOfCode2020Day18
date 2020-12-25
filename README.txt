@@ -33,34 +33,75 @@ Example Output:
 241861950
 
 * * *
-File: Day2Main.java
-Date: 12/24/2020
+ File: Day2Main.java
+ Date: 12/24/2020
+
+ Description:
+ parse lines, find number of lines fulfill rule
+ rule -xor chars at 2 places
+
+ Assumptions:
+ format of each line -<integer>-<integer> <charKey>: <password>
+
+ Technical use:
+ Java
+ read File, ArrayLists, ints
+
+ Approach:
+ parse each line as String, get info
+ do comparisions
+     add to variable
+ print variable
+
+
+ Example Input:
+ 1-3 a: abcde
+ 1-3 b: cdefg
+ 2-9 c: ccccccccc
+
+ Example Output:
+ 1
+
+* * *
+File: Day3Main.java
+Date: 12/25/2020
 
 Description:
-parse lines, find number of lines fulfill rule
-rule -xor chars at 2 places
+parse lines, find char in line given how much down and right, compare character to <>, count result
+find product of all results
 
 Assumptions:
-format of each line -<integer>-<integer> <charKey>: <password>
+format of each line consists of <.> and <#>
 
 Technical use:
 Java
-read File, ArrayLists, ints
+read File, ArrayLists, 2 dimensional arrays, int, long
 
 Approach:
-parse each line as String, get info
-do comparisions
-    add to variable
-print variable
+parse each line
+go through lines and find char to compare
+char found by adding const right value to var
+compare chars
+return result
+find product
 
 
 Example Input:
-1-3 a: abcde
-1-3 b: cdefg
-2-9 c: ccccccccc
+..##.......
+#...#...#..
+.#....#..#.
+..#.#...#.#
+.#...##..#.
+..#.##.....
+.#.#.#....#
+.#........#
+#.##...#...
+#...##....#
+.#..#...#.#
 
 Example Output:
-1
+[2, 7, 3, 4, 2]
+336
 
 * * *
 File: Day18MathMain.java
