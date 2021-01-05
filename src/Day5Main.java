@@ -9,7 +9,7 @@ public class Day5Main
     public static void main(String[] args) throws Exception
     {
         //get file
-        File file = new File("C:\\Users\\unebe\\Documents\\2020 F\\AdventOfCode\\input.txt");
+        File file = new File("C:\\Users\\unebe\\Documents\\2020 F\\AdventOfCode\\test.txt");
 
         //read file
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -56,11 +56,11 @@ public class Day5Main
 
             }
             maxSeatID = Math.max(maxSeatID, seatID);
-            /*
+
             System.out.println("row " + rowEnd + ", " +
                                 "column " + colEnd + ", " +
                                 "seat ID " + seatID);
-            */
+
             //System.out.println("maxSeatID:" + maxSeatID);
 
             seats.add(seatID);
@@ -80,7 +80,7 @@ public class Day5Main
                 }
             }
         }
-        System.out.println("mySeat:" + mySeat);
+        //System.out.println("mySeat:" + mySeat);
 
     }
 }
