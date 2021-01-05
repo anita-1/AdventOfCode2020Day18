@@ -1,6 +1,3 @@
-Project: Advent of Code 2020
-Author: Anita Luo
-
 File: Day4Main.java
 Date: 01/04/2021
 
