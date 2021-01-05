@@ -1,6 +1,8 @@
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Day5Main
 {
@@ -12,6 +14,7 @@ public class Day5Main
         //read file
         BufferedReader br = new BufferedReader(new FileReader(file));
 
+        ArrayList<Integer> seats = new ArrayList<Integer>();
         String line = "";
         int maxSeatID = 0;
         while((line = br.readLine()) != null)
@@ -51,14 +54,33 @@ public class Day5Main
                 }
                 seatID = rowEnd * 8 + colEnd;
 
-
             }
             maxSeatID = Math.max(maxSeatID, seatID);
+            /*
             System.out.println("row " + rowEnd + ", " +
                                 "column " + colEnd + ", " +
                                 "seat ID " + seatID);
+            */
             //System.out.println("maxSeatID:" + maxSeatID);
+
+            seats.add(seatID);
         }
         System.out.println("maxSeatID:" + maxSeatID);
+
+        Collections.sort(seats);
+        //System.out.println(seats);
+        int mySeat = -1;
+        for(int thisSeat = seats.get(0); thisSeat < seats.get(seats.size() - 1); thisSeat++)
+        {
+            if(!seats.contains(thisSeat))
+            {
+                if(seats.contains(thisSeat - 1) && seats.contains(thisSeat + 1))
+                {
+                    mySeat = thisSeat;
+                }
+            }
+        }
+        System.out.println("mySeat:" + mySeat);
+
     }
 }
