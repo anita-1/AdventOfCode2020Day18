@@ -8,7 +8,7 @@ public class Day4Main
     public static void main(String[] args) throws Exception
     {
         //get file
-        File file = new File("C:\\Users\\unebe\\Documents\\2020 F\\AdventOfCode\\test.txt");
+        File file = new File("C:\\Users\\unebe\\Documents\\2020 F\\AdventOfCode\\input.txt");
 
         //read file
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -30,52 +30,62 @@ public class Day4Main
             }
         }
         inputLines.add(eachPass);
-        System.out.println(inputLines);
+        //System.out.println(inputLines);
 
         int numValid = 0;
+        //go through each passport
         for(int index = 0; index < inputLines.size(); index++)
         {
             int partsValid = 0;
             String pass = inputLines.get(index);
+
+            //byr : birth year
             if( pass.contains("byr") )
             {
                 String byrStr = pass.substring(pass.indexOf("byr") + 4);
                 byrStr = byrStr.substring(0, byrStr.indexOf(" "));
                 //System.out.println(byrStr);
                 int byrInt = Integer.parseInt(byrStr);
-                System.out.println("byr : " + byrInt);
+                //System.out.println("byr : " + byrInt);
                 if((1920 <= byrInt) && (byrInt <= 2002))
                 {
                     partsValid++;
                 }
             }
-            System.out.println("***paV: " + partsValid);
+            //System.out.println("***paV: " + partsValid);
             if( pass.contains("iyr") )
             {
                 String byrStr = pass.substring(pass.indexOf("iyr") + 4);
-                byrStr = byrStr.substring(0, byrStr.indexOf(" "));
+                try
+                {
+                    byrStr = byrStr.substring(0, byrStr.indexOf(" "));
+                }
+                catch (StringIndexOutOfBoundsException e)
+                {
+
+                }
                 //System.out.println(byrStr);
                 int byrInt = Integer.parseInt(byrStr);
-                System.out.println("iyr : " + byrInt);
+                //System.out.println("iyr : " + byrInt);
                 if((2010 <= byrInt) && (byrInt <= 2020))
                 {
                     partsValid++;
                 }
             }
-            System.out.println("***paV: " + partsValid);
+            //System.out.println("***paV: " + partsValid);
             if( pass.contains("eyr") )
             {
                 String byrStr = pass.substring(pass.indexOf("eyr") + 4);
                 byrStr = byrStr.substring(0, byrStr.indexOf(" "));
                 //System.out.println(byrStr);
                 int byrInt = Integer.parseInt(byrStr);
-                System.out.println(" eyr : " + byrInt);
+                //System.out.println(" eyr : " + byrInt);
                 if((2020 <= byrInt) && (byrInt <= 2030))
                 {
                     partsValid++;
                 }
             }
-            System.out.println("***paV: " + partsValid);
+            //System.out.println("***paV: " + partsValid);
             if( pass.contains("hgt") )
             {
                 String byrStr = pass.substring(pass.indexOf("hgt") + 4);
@@ -83,7 +93,7 @@ public class Day4Main
                 {
                     byrStr = byrStr.substring(0, byrStr.indexOf(" "));
                 }
-                System.out.println("hgt : "  + byrStr);
+                //System.out.println("hgt : "  + byrStr);
                 if(byrStr.contains("cm"))
                 {
                     byrStr = byrStr.substring(0, byrStr.length() - 2);
@@ -105,12 +115,12 @@ public class Day4Main
                     }
                 }
             }
-            System.out.println("***paV: " + partsValid);
+            //System.out.println("***paV: " + partsValid);
             if( pass.contains("hcl") )
             {
                 String byrStr = pass.substring(pass.indexOf("hcl") + 4);
                 byrStr = byrStr.substring(0, byrStr.indexOf(" "));
-                System.out.println("hcl: " + byrStr);
+                //System.out.println("hcl: " + byrStr);
                 if(byrStr.indexOf("#") == 0 && byrStr.length() == 7)
                 {
                     byrStr = byrStr.substring(1);
@@ -130,12 +140,12 @@ public class Day4Main
                     }
                 }
             }
-            System.out.println("***paV: " + partsValid);
+            //System.out.println("***paV: " + partsValid);
             if( pass.contains("ecl") )
             {
                 String byrStr = pass.substring(pass.indexOf("ecl") + 4);
                 byrStr = byrStr.substring(0, byrStr.indexOf(" "));
-                System.out.println("ecl : " + byrStr);
+                //System.out.println("ecl : " + byrStr);
                 if (byrStr.equals("amb") ||
                         byrStr.equals("blu") ||
                         byrStr.equals("brn") ||
@@ -147,33 +157,43 @@ public class Day4Main
                     partsValid++;
                 }
             }
-            System.out.println("***paV: " + partsValid);
+            //System.out.println("***paV: " + partsValid);
             if( pass.contains("pid") )
             {
                 String byrStr = pass.substring(pass.indexOf("pid") + 4);
-                byrStr = byrStr.substring(0, byrStr.indexOf(" "));
-                System.out.println("pid: " + byrStr);
-                int pidInt = 0;
                 try
                 {
-                    pidInt = Integer.parseInt(byrStr);
+                    byrStr = byrStr.substring(0, byrStr.indexOf(" "));
                 }
-                catch (NumberFormatException e)
+                catch (StringIndexOutOfBoundsException e)
                 {
-                    pidInt = -1;
+
                 }
-                if(("" + pidInt).length() == 9)
+                //System.out.println("pid:" + byrStr);
+                int numNum = 0;
+                if(byrStr.length() == 9)
                 {
-                    partsValid++;
+                    for(int idIndex = 0; idIndex < byrStr.length(); idIndex++)
+                    {
+                        int numOfChar = byrStr.charAt(idIndex);
+                        if(48 <= numOfChar && numOfChar <= 57)
+                        {
+                            numNum++;
+                        }
+                    }
+                    if(numNum == 9)
+                    {
+                        partsValid++;
+                    }
                 }
             }
-            System.out.println("***paV: " + partsValid);
+            //System.out.println("***paV: " + partsValid);
             if(partsValid == 7)
             {
                 numValid++;
             }
-            System.out.println("numV: " + numValid);
-            System.out.println();
+            //System.out.println("numV: " + numValid);
+            //System.out.println();
         }
         System.out.println(numValid);
     }
