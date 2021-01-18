@@ -12,6 +12,7 @@ Technical use:
 Java
 read File, long, ArrayList
 
+
 Approach:
 Read file
 Read each line
